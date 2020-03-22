@@ -1,0 +1,33 @@
+{
+  "object": "value",
+  "document": {
+    "object": "document",
+    "data": {},
+    "nodes": [
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {},
+        "nodes": [
+          {
+            "object": "text",
+            "text": "The concentration of black smoke is higher around the morning and evening rush hour. This substance is released when trucks, ships and industry burn fuel. The concentration of black smoke is an indicator of the number of soot particles in the air. Soot is the smallest particulate matter (PM2.5). There is no set legal limit value yet. As soot is even smaller than PM2.5, particles are able to penetrate even deeper into the lungs and are therefore more harmful from a health perspective.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {},
+        "nodes": [
+          {
+            "object": "text",
+            "text": "",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  }
+}
