@@ -35,8 +35,9 @@ On Android screen the application will look and feel like this:
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b4505cdd097bf329e49d/720x1280/3379286d6c2045fc917be5028ae93585/photo_2020-03-22_20-01-22.jpg" alt="android"/>
 
 ## Technical stack
-The client will make use of my  [air-quality-monitor-nl-server](https://github.com/dmitrychebayewski/air-quality-monitor-nl-server) project.
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app),
+and it makes use of my  [air-quality-monitor-nl-server](https://github.com/dmitrychebayewski/air-quality-monitor-nl-server) project.
 
 ## Available Scripts
 
