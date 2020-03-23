@@ -1,33 +1,45 @@
 ## Rotterdam Air Quality Monitor
-## User Manual
+
 This single-page web application will update 
 you about the quality of air you're breathing near Ahoy, Zuidplein in Rotterdam.
-
 Once you start the server and the client, the browser page wil look like this:
+
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/6d8dc804c821aaf6332ffae106b66719/Rotterdam_air_quality.PNG" alt="application"/>
 
-Each air pollutant measurement is average of at least 3 ones, taken from 4 hours back until now:
+## Features
+
+* Monitoring the pollutants
+
+Each air pollutant value is an average value of at least 3 ones, measured from 4 hours back until now:
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/48a03283819d5141268d2a633b0185c5/Pollutants.PNG" alt="measurements"/>
 
+
+* Switching to the next air pollutants
+
 Click or tap the button to see the next components polluting the air.
 
-You can travel in time using the date and time picker. 
+* Travelling in time / historical measurements
+
+You can travel in time by using the date and time picker. 
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/f7134dde10f6b34a94dad4624d1d4989/TimeTravel.PNG" alt="travelling"/>
 
-The app will show you historical values of air pollutants.
-You can click (or tap) the pollutant row, 
-and the app will update the bar charts and the explanation at the bottom:
+Once you choose the date, the app will show you historical values of air pollutants, measured in the past
+
+* Average city and provincial values
+ 
+Once you can click (or tap) the pollutant row, the app will update the bar charts and the explanation at the bottom of the panel:
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/10767bc209f1281dd64325a8c9fccc79/Aggr.PNG" alt="pollutants"/>
-
-The bar charts show the values of selected pollutant in Rotterdam and in South Holland province.
-They are also average values of at least 3 measurements, but they are not travelling in time.
-Not only can you breathe the fresh air but also see the difference of the air quality near Ahoy, now or in the past 
+ 
+The bar charts display the values of selected pollutant in Rotterdam and in South Holland province.
+The values are also averages of at least 3 measurements, but the regional numbers are not travelling in time.
+Since they are always actual, you see the difference between the air quality parameter measured near Ahoy now or in the past, 
 and the actual average quality of air in Rotterdam and South Holland.
 
 ## Supported devices
+
 The app will work in Chrome, Firefox, Safari, Edge desktop browsers.
 It has also been tested to work on Android mobile phones and iPad.
 On Android screen the application will look and feel like this:
