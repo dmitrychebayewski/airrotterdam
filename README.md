@@ -1,4 +1,4 @@
-## Rotterdam Air Quality Monitor
+## [Rotterdam Air Quality Monitor](https://airrotterdam.herokuapp.com)
 
 This single-page web application will update 
 you about the quality of air you're breathing near Ahoy, Zuidplein in Rotterdam.
