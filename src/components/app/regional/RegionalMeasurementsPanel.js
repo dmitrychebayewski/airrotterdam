@@ -1,10 +1,12 @@
 import React from 'react';
 import RegionalMeasurementElement from "./RegionalMeasurementElement";
 import moment from "moment";
+import {HOURS_BACK} from '../../../config/Constants';
 import ComponentsInfo from "../../../metadata/ComponentsInfo";
 
 const className = 'GeneralStatsPanel w3-container';
-const title = 'averaged measurements, recent 4 hours until';
+
+const title = `averaged measurements, recent ${HOURS_BACK} hours until`;
 
 class RegionalMeasurementsPanel extends React.Component {
 
