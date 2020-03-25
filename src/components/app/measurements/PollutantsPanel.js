@@ -45,7 +45,7 @@ class PollutantsPanel extends React.Component {
                 }
             });
         });
-        this.interval = setInterval(() => {this.update(new Date())}, 10000);
+        this.interval = setInterval(() => {this.update(new Date())}, 240000);
     }
 
     onChange = dateOfMeasurement => {
