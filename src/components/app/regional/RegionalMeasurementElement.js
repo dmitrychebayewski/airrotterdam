@@ -18,12 +18,11 @@ class RegionalMeasurementElement extends React.Component {
     }
 
     updateValue() {
-        console.log(this.props.dateOfMeasurement);
         GetRegionalAggregatedMeasurements.getMeasurementByRegion(this.props.region,
             this.props.currentFormula, 'avg')
             .then(
                 response => {
-                    const value = response.length? response[0].value : 0;
+                    const value = response.length ? response[0].value : 0;
                     this.setState({
                         formula: this.props.currentFormula,
                         value: value,
@@ -37,6 +36,7 @@ class RegionalMeasurementElement extends React.Component {
                     this.setState({
                         scaleFactor: response.lowerband / 100
                     })
+
                 }
             )
     }
@@ -62,7 +62,7 @@ class RegionalMeasurementElement extends React.Component {
             <div>
                 <p>{this.props.name}</p>
                 <div className={this.props.currentFormula + " w3-grey"}>
-                    <div className={"w3-container w3-center w3-padding "+this.w3Colour(rating)}
+                    <div className={"w3-container w3-center w3-padding " + this.w3Colour(rating)}
                          style={this.style(measurementValue / this.state.scaleFactor)}>{measurementValue}&nbsp;μg/m3
                     </div>
                 </div>
