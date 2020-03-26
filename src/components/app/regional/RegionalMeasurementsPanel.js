@@ -3,10 +3,12 @@ import RegionalMeasurementElement from "./RegionalMeasurementElement";
 import moment from "moment";
 import {HOURS_BACK} from '../../../config/Constants';
 import ComponentsInfo from "../../../metadata/ComponentsInfo";
+import ErrorBoundary from "../error_boundaries/ErrorBoundary";
 
 const className = 'GeneralStatsPanel w3-container';
 
 const title = `averaged measurements, recent ${HOURS_BACK} hours until`;
+const error = 'Measurements are not available. Plese, visit us later';
 
 class RegionalMeasurementsPanel extends React.Component {
 
@@ -14,18 +16,20 @@ class RegionalMeasurementsPanel extends React.Component {
         return (
             <div className={className}>
                 <h5>{ComponentsInfo.get(this.props.currentFormula).name.en}: {title} {moment().format('DD/MM/YYYY HH:mm')} </h5>
-                <RegionalMeasurementElement
-                    dateOfMeasurement={this.props.dateOfMeasurement}
-                    currentFormula={this.props.currentFormula}
-                    name={'Rotterdam'}
-                    region={'RD'}
-                    value={this.props.value}/>
-                <RegionalMeasurementElement
-                    dateOfMeasurement={this.props.dateOfMeasurement}
-                    currentFormula={this.props.currentFormula}
-                    name={'Zuid Holland'}
-                    region={'ZH'}
-                    value={this.props.value}/>
+                <ErrorBoundary text={error}>
+                    <RegionalMeasurementElement
+                        dateOfMeasurement={this.props.dateOfMeasurement}
+                        currentFormula={this.props.currentFormula}
+                        name={'Rotterdam'}
+                        region={'RD'}
+                        value={this.props.value}/>
+                    <RegionalMeasurementElement
+                        dateOfMeasurement={this.props.dateOfMeasurement}
+                        currentFormula={this.props.currentFormula}
+                        name={'Zuid Holland'}
+                        region={'ZH'}
+                        value={this.props.value}/>
+                </ErrorBoundary>
             </div>
         );
     }
