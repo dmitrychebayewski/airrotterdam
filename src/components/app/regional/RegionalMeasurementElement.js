@@ -1,6 +1,5 @@
 import React from 'react';
 import GetRegionalAggregatedMeasurements from "../../../client/axios/measurements/GetRegionalAggregatedMeasurements";
-import GetComponentInfo from "../../../client/axios/components/GetComponentInfo";
 import ComponentsInfo from "../../../metadata/ComponentsInfo";
 
 class RegionalMeasurementElement extends React.Component {
@@ -30,15 +29,6 @@ class RegionalMeasurementElement extends React.Component {
                     })
                 }
             );
-        GetComponentInfo.getComponentUpperLimit(this.props.currentFormula)
-            .then(
-                response => {
-                    this.setState({
-                        scaleFactor: response.lowerband / 100
-                    })
-
-                }
-            )
     }
 
     w3Colour(value) {
@@ -58,12 +48,13 @@ class RegionalMeasurementElement extends React.Component {
         }
         const measurementValue = this.state.value;
         const rating = ComponentsInfo.rating(this.props.currentFormula, measurementValue);
+        const scaleFactor = ComponentsInfo.limit(this.props.currentFormula) / 100;
         return (
             <div>
                 <p>{this.props.name}</p>
                 <div className={this.props.currentFormula + " w3-grey"}>
                     <div className={"w3-container w3-center w3-padding " + this.w3Colour(rating)}
-                         style={this.style(measurementValue / this.state.scaleFactor)}>{measurementValue}&nbsp;μg/m3
+                         style={this.style(measurementValue / scaleFactor)}>{measurementValue}&nbsp;μg/m3
                     </div>
                 </div>
             </div>

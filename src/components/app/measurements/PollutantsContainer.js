@@ -5,8 +5,7 @@ import GetRegionalAggregatedMeasurements from '../../../client/axios/measurement
 import RegionalMeasurementsPanel from '../regional/RegionalMeasurementsPanel';
 import PollutantInfoPanel from '../info/PollutantInfoPanel';
 
-const className = 'PollutantsContainer';
-const placeHolderClass = 'GeneralStatsPlaceholder';
+const className = 'PollutantsContainer w3-container';
 
 class PollutantsContainer extends React.Component {
 
@@ -38,8 +37,7 @@ class PollutantsContainer extends React.Component {
 
     handleFormulaSelection(event) {
         this.setState({
-            formula: event.target.className,
-            dateOfMeasurement: event.target.date
+            formula: event.target.attributes['formula'].value
         });
     }
 
@@ -51,13 +49,11 @@ class PollutantsContainer extends React.Component {
                     formulaHandler={this.handleFormulaSelection}
                     measurements={this.state.measurements}/>
                 <hr/>
-                <div className={placeHolderClass}>
-                    <RegionalMeasurementsPanel
-                        dateOfMeasurement={this.state.dateOfMeasurement}
-                        currentFormula={this.state.formula}
-                        value={this.state.value}
-                    />
-                </div>
+                <RegionalMeasurementsPanel
+                    dateOfMeasurement={this.state.dateOfMeasurement}
+                    currentFormula={this.state.formula}
+                    value={this.state.value}
+                />
                 <hr/>
                 <PollutantInfoPanel
                     currentFormula={this.state.formula}/>

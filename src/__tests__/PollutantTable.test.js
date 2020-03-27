@@ -4,11 +4,12 @@ import PollutantTable from "../components/app/measurements/table/PollutantTable"
 import MockData from "../mock_data/MockData";
 
 test('Pollutant Table should be present', () => {
-    const { getByText } = render(<PollutantTable
+    const {getByText} = render(<PollutantTable
         pollutants={MockData.getDefaultPollutants()}
         pollutantsToShow={3}
         dateOfMeasurement={new Date()}
-        formulaHandler={()=>{}}
+        formulaHandler={() => {
+        }}
         measurements={MockData.getInitMeasurements()}
     />);
     expect(getByText(/FN/)).toBeInTheDocument();

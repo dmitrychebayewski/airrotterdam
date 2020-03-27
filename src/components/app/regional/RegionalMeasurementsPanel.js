@@ -5,7 +5,7 @@ import {HOURS_BACK} from '../../../config/Constants';
 import ComponentsInfo from "../../../metadata/ComponentsInfo";
 import ErrorBoundary from "../error_boundaries/ErrorBoundary";
 
-const className = 'GeneralStatsPanel w3-container';
+const className = 'GeneralStatsPanel w3-panel';
 
 const title = `averaged measurements, recent ${HOURS_BACK} hours until`;
 const error = 'Measurements are not available. Plese, visit us later';

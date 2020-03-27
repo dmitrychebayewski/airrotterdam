@@ -638,7 +638,7 @@ const ALL = {
 };
 
 function withinRange(element, value) {
-    const lowerBand = element.lowerband? element.lowerband : 0;
+    const lowerBand = element.lowerband ? element.lowerband : 0;
 
     return lowerBand <= value && value <= element.upperband;
 }
@@ -651,9 +651,15 @@ class ComponentsInfo {
     static rating(name, value) {
         const component = ALL[name];
         if (component) {
-            return  component.limits.find(element => withinRange(element, value)).rating;
+            return component.limits.find(element => withinRange(element, value)).rating;
         }
         return 11;
+    }
+
+    static limit(name) {
+        const component = ALL[name];
+        const limits = component.limits;
+        return limits[limits.length - 1].lowerband;
     }
 }
 
