@@ -25,7 +25,7 @@ const DEFAULT_MEASUREMENTS = [{
     "value": 0
 }, {"formula": "PM25", "station_number": "NL01487", "timestamp_measured": "2020-03-21T12:00:00+00:00", "value": 0}];
 
-const DEFAULT_POLLUTANTS  =
+const DEFAULT_POLLUTANTS =
     {
         "C6H6": [
             {
@@ -169,6 +169,7 @@ class MockData {
     static getDefaultPollutants() {
         return DEFAULT_POLLUTANTS;
     }
+
     static getDefaultMeasurementStation() {
         return DEFAULT_MEASUREMENT_STATION;
     }

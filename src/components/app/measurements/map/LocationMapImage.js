@@ -20,16 +20,16 @@ class LocationMapImage extends React.Component {
     render() {
         const position = [this.state.lat, this.state.lng];
         return (
-            <div className="w3-third">
+            <div className="w3-third w3-container">
                 <h5>{regionTitle}</h5>
-                <Map style={this.style()} center={position} zoom={this.state.zoom} >
+                <Map style={this.style()} center={position} zoom={this.state.zoom}>
                     <TileLayer
                         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <Marker position={position}>
                         <Popup>
-                           {altTitle}
+                            {altTitle}
                         </Popup>
                     </Marker>
                 </Map>

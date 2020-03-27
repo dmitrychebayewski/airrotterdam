@@ -4,11 +4,12 @@ import PollutantTable from '../../../components/app/measurements/table/Pollutant
 import DateTimePicker from 'react-datetime-picker';
 import GetRegionalAggregatedMeasurements from '../../../client/axios/measurements/GetRegionalAggregatedMeasurements';
 
+
 const majorPollutantsTitle = 'Major Air Pollutants, μg/m3';
 
-const className = 'PollutantsPanel';
-const topPollutantsContainerStyle = {
-    margin: '0 -16px'
+const className = 'PollutantsPanel w3-panel';
+const margin = {
+    margin: '0 -10px'
 };
 
 const initPollutantsToShow = 3;
@@ -45,7 +46,9 @@ class PollutantsPanel extends React.Component {
                 }
             });
         });
-        this.interval = setInterval(() => {this.update(new Date())}, 240000);
+        this.interval = setInterval(() => {
+            this.update(new Date())
+        }, 240000);
     }
 
     onChange = dateOfMeasurement => {
@@ -59,11 +62,15 @@ class PollutantsPanel extends React.Component {
 
     render() {
         return (
-            <div className={className + ' w3-row-padding'} style={topPollutantsContainerStyle}>
+            <div className={className + ' w3-row-padding'}
+                 style={margin}
+            >
                 <LocationMapImage/>
                 <div className="w3-twothird">
-                    <h5>{majorPollutantsTitle}&nbsp;&nbsp;&nbsp;<DateTimePicker onChange={this.onChange}
-                                                                                value={this.state.dateOfMeasurement}/>
+                    <h5>{majorPollutantsTitle}&nbsp;&nbsp;&nbsp;
+                        <DateTimePicker onChange={this.onChange}
+                                        value={this.state.dateOfMeasurement}>
+                        </DateTimePicker>
                     </h5>
                     <PollutantTable dateOfMeasurement={this.state.dateOfMeasurement}
                                     measurements={this.state.measurements}

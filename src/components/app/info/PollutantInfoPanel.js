@@ -9,9 +9,9 @@ class PollutantInfoPanel extends React.Component {
         const serializedObject = ComponentsInfo.get(formula).description.en;
         const document = JSON.parse(serializedObject);
         let outerNode = document.document.nodes[0];
-        if(outerNode) {
+        if (outerNode) {
             let innerNode = outerNode.nodes[0];
-            if(innerNode) {
+            if (innerNode) {
                 return innerNode.text;
             }
         }

@@ -9,8 +9,8 @@ class App extends React.Component {
         return (
             <div>
                 <Header currentMeasurementPoint={MockData.getDefaultMeasurementStation()}/>
-                <ErrorBoundary text ='Measurements are not available. Refresh the page later'>
-                <PollutantsContainer/>
+                <ErrorBoundary text='Measurements are not available. Refresh the page later'>
+                    <PollutantsContainer/>
                 </ErrorBoundary>
             </div>
         )
