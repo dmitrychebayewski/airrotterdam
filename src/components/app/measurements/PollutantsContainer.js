@@ -30,21 +30,6 @@ class PollutantsContainer extends React.Component {
         }
     }
 
-    componentDidMount() {
-        GetRegionalAggregatedMeasurements.getMeasurementsByStation('NL01487', 'avg', this.state.dateOfMeasurement).then(res => {
-            this.setState(() => {
-                return {
-                    formula: res[0].formula,
-                    measurements: res
-                }
-            });
-        });
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
-
     handleMonitorFormulaSelection(event) {
         this.setState({
             formula: event.target.attributes['formula'].value

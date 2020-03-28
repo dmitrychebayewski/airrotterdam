@@ -12,10 +12,6 @@ class RegionalMeasurementElement extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.updateValue();
-    }
-
     updateValue() {
         GetRegionalAggregatedMeasurements.getMeasurementByRegion(this.props.region,
             this.props.currentFormula, 'avg')

@@ -54,6 +54,10 @@ class PollutantsPanel extends React.Component {
         }, 240000);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     onChange = dateOfMeasurement => {
         GetRegionalAggregatedMeasurements.getMeasurementsByStation('NL01487', 'avg', dateOfMeasurement).then(response => {
             this.setState({
