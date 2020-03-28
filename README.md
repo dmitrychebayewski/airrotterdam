@@ -4,24 +4,21 @@ This single-page web application will update
 you about the quality of air you're breathing near Ahoy, Zuidplein in Rotterdam.
 Once you start the server and the client, the browser page wil look like this:
 
-<img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/6d8dc804c821aaf6332ffae106b66719/Rotterdam_air_quality.PNG" alt="application"/>
+<img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/b9e02b25ea766feb016ad18f88c31da1/Air_monitor_-_Monitor.png" alt="application"/>
 
 ## Features
 
-* Monitoring the pollutants
+## Monitoring the pollutants on the spot
 
 Each air pollutant value is an average value of at least 3 ones, measured from 4 hours back until now:
 
-<img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/48a03283819d5141268d2a633b0185c5/Pollutants.PNG" alt="measurements"/>
+* Loading to the next 3 measurements on the spot
 
+Click or tap the button to see the next measurements of the components polluting the air.
 
-* Switching to the next air pollutants
+* Travelling in time / see (compare) the historical measurements
 
-Click or tap the button to see the next components polluting the air.
-
-* Travelling in time / historical measurements
-
-You can travel in time by using the date and time picker. 
+You can travel in time by picking the date and time of the measurement in the past. 
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/f7134dde10f6b34a94dad4624d1d4989/TimeTravel.PNG" alt="travelling"/>
 
@@ -29,14 +26,34 @@ Once you choose the date, the app will show you historical values of air polluta
 
 * Average city and provincial values
  
-Once you can click (or tap) the pollutant row, the app will update the bar charts and the explanation at the bottom of the panel:
+Once you can click (or tap) the pollutant row, the app will update the bar charts and the explanation at the bottom of the panel.
 
-<img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/10767bc209f1281dd64325a8c9fccc79/Aggr.PNG" alt="pollutants"/>
- 
 The bar charts display the values of selected pollutant in Rotterdam and in South Holland province.
 The values are also averages of at least 3 measurements, but the regional numbers are not travelling in time.
 Since they are always actual, you see the difference between the air quality parameter measured near Ahoy now or in the past, 
 and the actual average quality of air in Rotterdam and South Holland.
+
+* Switching to "Top Pollutants" mode
+
+Once you click (or tap) the "Switch to top pollutants" button, the application will switch to "Top Pollutants" mode.
+
+<img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/6b314da5e755e3e15cad7fe66e30970d/Air_monitor_-_Top_Pollutants.PNG" alt="application"/>
+
+## Top pollutants
+
+The application will display the list of maximal values, averaged by 3 recent measurements.
+Once you click (or) tap the table row (the pollutant bar), the map will switch to the region where the maximal value 
+has been recently spotted.
+
+The average recent values of the pollutant are still Rotterdam and Zuid-Holland. 
+
+You can switch back to "Monitor" mode by clicking (or tapping) the "Switch to monitor" button.
+ 
+
+
+ 
+
+
 
 ## Supported devices
 

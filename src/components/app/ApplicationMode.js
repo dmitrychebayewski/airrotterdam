@@ -10,7 +10,6 @@ export const TOP_POLLUTANTS = {
 
 class ApplicationMode {
     static dispatch(applicationMode) {
-        console.log(applicationMode)
         switch (applicationMode) {
             case MONITOR:
                 return TOP_POLLUTANTS;
