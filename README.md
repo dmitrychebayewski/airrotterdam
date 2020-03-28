@@ -59,9 +59,18 @@ You can switch back to "Monitor" mode by clicking (or tapping) the "Switch to mo
 
 The app will work in Chrome, Firefox, Safari, Edge desktop browsers.
 It has also been tested to work on Android mobile phones and iPad.
-On Android screen the application will look and feel like this:
 
-<img src="https://trello-attachments.s3.amazonaws.com/5e77b4505cdd097bf329e49d/720x1280/3379286d6c2045fc917be5028ae93585/photo_2020-03-22_20-01-22.jpg" alt="android"/>
+### Android
+
+On an Android device, the application will look and feel like this:
+
+<img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/c135877a9360b349ec48c85de6204c20/photo_2020-03-28_23-02-24.jpg" alt="android"/>
+
+### iPad
+
+On an iPad, in Safari browser, the application will look and feel like this:
+
+<img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/52d009b9e05d183fa530e44df2275eb9/photo_2020-03-28_23-07-30.jpg" alt="android"/>
 
 ## Technical stack
 
@@ -139,3 +148,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Known issues
+
+There are no open issues so far.
+
+### Cookies
+
+The application may set cookies from vendors. The application doesn't set the own cookies. 
