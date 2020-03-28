@@ -4,9 +4,9 @@ const headerStyle = {
     paddingTop: '22px'
 };
 const margin = {
-    margin: '11px'
+    margin: '15px'
 };
-const title = ' Air Quality';
+const title = 'Air Quality';
 
 class Header extends React.Component {
     render() {

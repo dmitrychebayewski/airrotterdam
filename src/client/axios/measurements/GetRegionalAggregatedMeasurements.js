@@ -9,7 +9,7 @@ const MEASUREMENT_REGION_ENDPOINT = 'api/measurement/region';
 class GetRegionalAggregatedMeasurements {
 
     /**
-     * http://localhost:8080/v1/api/measurements/NL01488
+     * http://{url}/v1/api/measurements/NL01488
      * @param station_number
      * @param aggr
      * @param date
@@ -23,7 +23,7 @@ class GetRegionalAggregatedMeasurements {
     }
 
     /**
-     * http://localhost:8080/v1/api/measurements/region/rd?aggr=avg
+     * http://{url}/v1/api/measurements/region/rd?aggr=avg
      * @param region
      * @param formula
      * @param aggr
@@ -34,7 +34,6 @@ class GetRegionalAggregatedMeasurements {
         const end = moment(date).format();
         const start = moment(date).subtract(HOURS_BACK, 'hours').format();
         const url = `${AIR_QUALITY_API_URL}:${DEFAULT_PORT}/${API_VERSION}/${MEASUREMENT_REGION_ENDPOINT}/${region}?formula=${formula}&start=${start}&end=${end}&aggr=${aggr}`;
-        console.log(url);
         return AxiosGet.get(url);
     }
 }

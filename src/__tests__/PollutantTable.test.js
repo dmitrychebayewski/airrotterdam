@@ -1,10 +1,10 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import PollutantTable from "../components/app/measurements/table/PollutantTable";
+import OnTheSpotMonitorTable from "../components/app/measurements/on_the_spot/OnTheSpotMonitorTable";
 import MockData from "../mock_data/MockData";
 
 test('Pollutant Table should be present', () => {
-    const {getByText} = render(<PollutantTable
+    const {getByText} = render(<OnTheSpotMonitorTable
         pollutants={MockData.getDefaultPollutants()}
         pollutantsToShow={3}
         dateOfMeasurement={new Date()}
