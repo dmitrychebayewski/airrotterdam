@@ -55,7 +55,12 @@ class PollutantsContainer extends React.Component {
                         this.setState(() => {
                             return {
                                 applicationMode: nextMode,
-                                componentsMeasurements: response
+                                componentsMeasurements: response,
+                                coordinates: {
+                                    lat: response[0].coordinates[1],
+                                    lng: response[0].coordinates[0],
+                                    where: response[0].whereMeasured
+                            }
                             }
                         });
                     }
