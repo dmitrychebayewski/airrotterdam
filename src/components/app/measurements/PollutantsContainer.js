@@ -30,21 +30,6 @@ class PollutantsContainer extends React.Component {
         }
     }
 
-    componentDidMount() {
-        GetRegionalAggregatedMeasurements.getMeasurementsByStation('NL01487', 'avg', this.state.dateOfMeasurement).then(res => {
-            this.setState(() => {
-                return {
-                    formula: res[0].formula,
-                    measurements: res
-                }
-            });
-        });
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
-
     handleMonitorFormulaSelection(event) {
         this.setState({
             formula: event.target.attributes['formula'].value
@@ -70,7 +55,12 @@ class PollutantsContainer extends React.Component {
                         this.setState(() => {
                             return {
                                 applicationMode: nextMode,
-                                componentsMeasurements: response
+                                componentsMeasurements: response,
+                                coordinates: {
+                                    lat: response[0].coordinates[1],
+                                    lng: response[0].coordinates[0],
+                                    where: response[0].whereMeasured
+                            }
                             }
                         });
                     }
