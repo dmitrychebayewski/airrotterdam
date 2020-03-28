@@ -52,7 +52,6 @@ class PollutantsContainer extends React.Component {
     }
 
     handleTopPollutantsFormulaSelection(event) {
-        console.log(event.target)
         this.setState({
             formula: event.target.attributes['formula'].value,
             coordinates: {
