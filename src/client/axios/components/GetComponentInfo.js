@@ -5,7 +5,7 @@ const COMPONENTS_ENDPOINT = 'api/component/limit';
 
 
 /**
- * http://localhost:8080/v1/api/component/limit/{formula}
+ * http://{url}/v1/api/component/limit/{formula}
  */
 class GetComponentInfo {
     static getComponentUpperLimit(formula = 'O3') {

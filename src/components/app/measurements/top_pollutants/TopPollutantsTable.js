@@ -1,7 +1,9 @@
 import React from 'react';
-import MorePollutantsButton from './MorePollutantsButton';
+import MorePollutantsButton from '../MorePollutantsButton';
 import EmptyPlaceholder from '../../EmptyPlaceholder';
 import ComponentsInfo from "../../../../metadata/ComponentsInfo";
+import ToggleModeButton from "../ToggleModeButton";
+import ApplicationMode from "../../ApplicationMode";
 
 const tableW3Classes = 'w3-table w3-striped w3-white';
 const moreRows = 3;
@@ -9,7 +11,7 @@ const buttonText = 'Next Pollutants';
 const className = 'PollutantTable';
 
 
-class PollutantTable extends React.Component {
+class TopPollutantsTable extends React.Component {
 
     constructor(props) {
         super(props);
@@ -62,13 +64,18 @@ class PollutantTable extends React.Component {
                 <td width='5%'><i className="fa fa-bell w3-text-red w3-large"/></td>
                 <td width='5%'><i>{pollutantName}</i></td>
                 <td onClick={this.getFormulaHandler()}
-                    date={this.props.dateOfMeasurement}
+                    lat={entry.coordinates[1]}
+                    lng={entry.coordinates[0]}
+                    where={entry.whereMeasured}
                     formula={entry.formula}
                     className={entry.formula}>
-                    <div formula={entry.formula} className={"w3-container w3-center " + this.w3Colour(rating)}
+                    <div formula={entry.formula}
+                         lat={entry.coordinates[1]}
+                         lng={entry.coordinates[0]}
+                         where={entry.whereMeasured}
+                         className={"w3-container w3-center " + this.w3Colour(rating)}
                          style={this.style(value / scaleFactor)}>{value}</div>
                 </td>
-
             </tr>
         });
     }
@@ -84,6 +91,8 @@ class PollutantTable extends React.Component {
                         {this.renderPollutantRows(theSlice)}
                         </tbody>
                     </table>
+                    <ToggleModeButton onClick={this.props.handleToggleMode}
+                                      buttonText={ApplicationMode.dispatch(this.props.applicationMode).title}/>
                     <MorePollutantsButton onClick={this.handleMorePollutantsClick} buttonText={buttonText}/>
                 </React.Fragment>
             );
@@ -94,4 +103,4 @@ class PollutantTable extends React.Component {
     }
 }
 
-export default PollutantTable;
+export default TopPollutantsTable;

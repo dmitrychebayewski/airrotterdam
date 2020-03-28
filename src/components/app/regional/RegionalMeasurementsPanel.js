@@ -8,7 +8,7 @@ import ErrorBoundary from "../error_boundaries/ErrorBoundary";
 const className = 'GeneralStatsPanel w3-panel';
 
 const title = `averaged measurements, recent ${HOURS_BACK} hours until`;
-const error = 'Measurements are not available. Plese, visit us later';
+const error = 'Measurements are not available. Please, visit us later';
 
 class RegionalMeasurementsPanel extends React.Component {
 

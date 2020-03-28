@@ -1,11 +1,15 @@
 import React from 'react';
 import LocationMapImage from './map/LocationMapImage';
-import PollutantTable from '../../../components/app/measurements/table/PollutantTable';
+import OnTheSpotMonitorTable from './on_the_spot/OnTheSpotMonitorTable';
 import DateTimePicker from 'react-datetime-picker';
 import GetRegionalAggregatedMeasurements from '../../../client/axios/measurements/GetRegionalAggregatedMeasurements';
+import {MONITOR, TOP_POLLUTANTS} from "../ApplicationMode";
+import TopPollutantsTable from "./top_pollutants/TopPollutantsTable";
+import {ROTTERDAM_ZUIDPLEIN} from "../../../metadata/Geolocations";
 
 
-const majorPollutantsTitle = 'Major Air Pollutants, μg/m3';
+const topPollutantsTitle = 'Top Air Pollutants, μg/m3';
+const pollutantsMonitorTitle = 'Air Pollutants Monitor, μg/m3';
 
 const className = 'PollutantsPanel w3-panel';
 const margin = {
@@ -22,7 +26,6 @@ class PollutantsPanel extends React.Component {
             dateOfMeasurement: this.props.dateOfMeasurement,
             measurements: this.props.measurements
         };
-
     }
 
     update(date) {
@@ -61,22 +64,49 @@ class PollutantsPanel extends React.Component {
     };
 
     render() {
+        const applicationMode = this.props.applicationMode;
         return (
             <div className={className + ' w3-row-padding'}
-                 style={margin}
-            >
-                <LocationMapImage/>
+                 style={margin}>
+                {applicationMode === MONITOR &&
+                <LocationMapImage coordinates={ROTTERDAM_ZUIDPLEIN}/>
+                }
+                {applicationMode === TOP_POLLUTANTS &&
+                <LocationMapImage coordinates={this.props.coordinates}/>
+                }
                 <div className="w3-twothird">
-                    <h5>{majorPollutantsTitle}&nbsp;&nbsp;&nbsp;
-                        <DateTimePicker onChange={this.onChange}
-                                        value={this.state.dateOfMeasurement}>
-                        </DateTimePicker>
-                    </h5>
-                    <PollutantTable dateOfMeasurement={this.state.dateOfMeasurement}
-                                    measurements={this.state.measurements}
-                                    pollutantsToShow={initPollutantsToShow}
-                                    formulaHandler={this.props.formulaHandler}
-                    />
+                    {applicationMode === MONITOR &&
+                    <React.Fragment>
+                        <h5>{pollutantsMonitorTitle}&nbsp;&nbsp;&nbsp;
+                            <DateTimePicker onChange={this.onChange}
+                                            value={this.state.dateOfMeasurement}>
+                            </DateTimePicker>
+                        </h5>
+                        <OnTheSpotMonitorTable
+                            applicationMode={this.props.applicationMode}
+                            dateOfMeasurement={this.state.dateOfMeasurement}
+                            measurements={this.state.measurements}
+                            pollutantsToShow={initPollutantsToShow}
+                            formulaHandler={this.props.formulaHandler}
+                            handleToggleMode={this.props.handleToggleMode}
+
+                        />
+                    </React.Fragment>
+                    }
+                    {applicationMode === TOP_POLLUTANTS &&
+                    <React.Fragment>
+                        <h5>{topPollutantsTitle}</h5>
+                        <TopPollutantsTable
+                            applicationMode={this.props.applicationMode}
+                            dateOfMeasurement={this.state.dateOfMeasurement}
+                            measurements={this.props.componentsMeasurements}
+                            pollutantsToShow={initPollutantsToShow}
+                            formulaHandler={this.props.topPollutantsFormulaHandler}
+                            handleToggleMode={this.props.handleToggleMode}
+
+                        />
+                    </React.Fragment>
+                    }
                 </div>
             </div>
         );
