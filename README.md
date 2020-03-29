@@ -11,7 +11,7 @@ the browser page will look like this:
 
 ## Features
 
-The application has two modes:
+The application supports two modes:
 
 * Monitoring the air quality on the spot (Monitor) 
 
