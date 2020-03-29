@@ -1,7 +1,6 @@
 import React from 'react';
 
 const buttonClass = 'ModeSwitchButton w3-button w3-dark-grey';
-const buttonTextPrefix = 'Switch to ';
 
 class ToggleModeButton extends React.Component {
 
@@ -12,7 +11,7 @@ class ToggleModeButton extends React.Component {
 
     render() {
         return (
-            <button className={buttonClass} onClick={this.props.onClick}>{buttonTextPrefix + this.props.buttonText}
+            <button className={buttonClass} onClick={this.props.onClick}>{this.props.buttonText}
             </button>
         );
     }
