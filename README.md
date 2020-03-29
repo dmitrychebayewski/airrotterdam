@@ -5,7 +5,7 @@ Once open the application page which is:
 
 https://airrotterdam.herokuapp.com
 
-the browser page wil look like this:
+the browser page will look like this:
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/b9e02b25ea766feb016ad18f88c31da1/Air_monitor_-_Monitor.png" alt="application"/>
 
