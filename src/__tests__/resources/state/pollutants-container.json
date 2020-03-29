@@ -1,0 +1,36 @@
+{
+  "state": {
+    "measurements": {},
+    "componentsMeasurements": {},
+    "formula": "FN",
+    "componentInfo": {},
+    "dateOfMeasurement": "2020-03-29T15:03:44.981Z",
+    "applicationMode": {
+      "name": "app.monitor",
+      "title": "Monitor"
+    },
+    "coordinates": {
+      "lat": 51.8883,
+      "lng": 4.49,
+      "where": "Rotterdam near Ahoy"
+    }
+  },
+  "render": {
+    "pollutants-panel": {
+      "state": {
+        "dateOfMeasurement": "2020-03-29T15:03:44.981Z",
+        "measurements": {}
+      },
+      "render": {
+        "location-map-image": {
+          "state": {
+            "lat": 51.8883,
+            "lng": 4.49,
+            "zoom": 13
+          }
+        }
+      }
+    }
+
+  }
+}

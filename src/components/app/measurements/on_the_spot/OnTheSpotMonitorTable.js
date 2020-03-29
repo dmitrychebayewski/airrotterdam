@@ -87,6 +87,7 @@ class OnTheSpotMonitorTable extends React.Component {
                         </tbody>
                     </table>
                     <ToggleModeButton onClick={this.props.handleToggleMode}
+                                      applicationMode = {this.props.applicationMode}
                                       buttonText={ApplicationMode.dispatch(this.props.applicationMode).title}/>
                     <MorePollutantsButton onClick={this.handleMorePollutantsClick} buttonText={buttonText}/>
                 </React.Fragment>

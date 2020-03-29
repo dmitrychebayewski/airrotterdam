@@ -2,7 +2,6 @@ import React from 'react';
 import ApplicationMode, {MONITOR, TOP_POLLUTANTS} from '../ApplicationMode'
 
 import PollutantsPanel from './PollutantsPanel';
-import GetRegionalAggregatedMeasurements from '../../../client/axios/measurements/GetRegionalAggregatedMeasurements';
 import RegionalMeasurementsPanel from '../regional/RegionalMeasurementsPanel';
 import PollutantInfoPanel from '../info/PollutantInfoPanel';
 import GetAggregatedComponentsMeasurements
@@ -60,12 +59,13 @@ class PollutantsContainer extends React.Component {
                                     lat: response[0].coordinates[1],
                                     lng: response[0].coordinates[0],
                                     where: response[0].whereMeasured
-                            }
+                                }
                             }
                         });
                     }
                 );
                 return;
+            default:
             case MONITOR:
                 this.setState({
                     applicationMode: nextMode
