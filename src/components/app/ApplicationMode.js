@@ -1,11 +1,11 @@
 export const MONITOR = {
     name: 'app.monitor',
-    title: 'monitor'
+    title: 'Monitor'
 };
 
 export const TOP_POLLUTANTS = {
     name: 'app.topPollutants',
-    title: 'top pollutants'
+    title: 'Top pollutants'
 };
 
 class ApplicationMode {

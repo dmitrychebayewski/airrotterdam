@@ -1,37 +1,44 @@
 ## [Rotterdam Air Quality Monitor](https://airrotterdam.herokuapp.com)
 
-This single-page web application will update 
-you about the quality of air you're breathing near Ahoy, Zuidplein in Rotterdam.
-Once you start the server and the client, the browser page wil look like this:
+This single-page web application will update you about the quality of air you're breathing near Ahoy, Zuidplein in Rotterdam.
+Once open the application page which is:
+
+https://airrotterdam.herokuapp.com
+
+the browser page wil look like this:
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/b9e02b25ea766feb016ad18f88c31da1/Air_monitor_-_Monitor.png" alt="application"/>
 
 ## Features
 
-## Monitoring the pollutants on the spot
+The application has two modes:
 
-Each air pollutant value is an average value of at least 3 ones, measured from 4 hours back until now:
+* Monitoring the air quality on the spot (Monitor) 
 
-* Loading to the next 3 measurements on the spot
+* Showing top values of pollutants concentrations contributing to AQI calculation, recently measured in the Netherlands (Top pollutants)
+
+## Monitoring the air quality on the spot
+
+Each air pollutant value is an average value of at least 3 recently taken ones.
+
+* Loading the next 3 measurements on the spot
 
 Click or tap the button to see the next measurements of the components polluting the air.
 
-* Travelling in time / see (compare) the historical measurements
+* Travelling in time / comparing the current and the historical measurements
 
 You can travel in time by picking the date and time of the measurement in the past. 
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e77b4505cdd097bf329e49d/f7134dde10f6b34a94dad4624d1d4989/TimeTravel.PNG" alt="travelling"/>
 
-Once you choose the date, the app will show you historical values of air pollutants, measured in the past
+Once you have chosen the measurement date, the app will show you historical values of air pollutants on the spot.
 
-* Average city and provincial values
+* Comparing the historical values and up to date city and provincial values of pollutant concentrations
  
-Once you can click (or tap) the pollutant row, the app will update the bar charts and the explanation at the bottom of the panel.
-
-The bar charts display the values of selected pollutant in Rotterdam and in South Holland province.
-The values are also averages of at least 3 measurements, but the regional numbers are not travelling in time.
-Since they are always actual, you see the difference between the air quality parameter measured near Ahoy now or in the past, 
-and the actual average quality of air in Rotterdam and South Holland.
+Once you have clicked  or tapped the pollutant row in the table, the application  will update the charts 
+that display the actual values of pollutant concentration in Rotterdam city and Zuid Holland province.
+These values are always actual, and they are not travelling in time.
+This makes it handy to compare the current situation in the city (and the the region) with historic measurements.
 
 * Switching to "Top Pollutants" mode
 
@@ -41,28 +48,22 @@ Once you click (or tap) the "Switch to top pollutants" button, the application w
 
 ## Top pollutants
 
-The application will display the list of maximal values, averaged by 3 recent measurements.
-Once you click (or) tap the table row (the pollutant bar), the map will switch to the region where the maximal value 
-has been recently spotted.
+The application displays the list of maximal concentrations of top pollutants. 
+The numbers are maximal values of at least 3 recent measurements.
 
-The average recent values of the pollutant are still Rotterdam and Zuid-Holland. 
+* Switching back to "Monitor" mode
 
-You can switch back to "Monitor" mode by clicking (or tapping) the "Switch to monitor" button.
+Once you click (or tap) the "Switch to monitor" button, the application will switch back to "Monitor" mode.
  
-
-
- 
-
-
-
 ## Supported devices
 
-The app will work in Chrome, Firefox, Safari, Edge desktop browsers.
-It has also been tested to work on Android mobile phones and iPad.
+The application will work in Chrome, Firefox, Safari and Edge desktop browsers.
+It has also been tested to work correctly on Android mobile phones and iPad.
+However, the look and feel experience is optimal on tablet (iPad or Android).
 
 ### Android
 
-On an Android device, the application will look and feel like this:
+On an Android mobile phone, the application will look and feel like this:
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/c135877a9360b349ec48c85de6204c20/photo_2020-03-28_23-02-24.jpg" alt="android"/>
 
