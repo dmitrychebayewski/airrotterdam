@@ -3,7 +3,6 @@ import MorePollutantsButton from '../MorePollutantsButton';
 import EmptyPlaceholder from '../../EmptyPlaceholder';
 import ComponentsInfo from "../../../../metadata/ComponentsInfo";
 import ToggleModeButton from "../ToggleModeButton";
-import ApplicationMode from "../../ApplicationMode";
 
 const tableW3Classes = 'w3-table w3-striped w3-white';
 const moreRows = 3;
@@ -92,7 +91,7 @@ class TopPollutantsTable extends React.Component {
                         </tbody>
                     </table>
                     <ToggleModeButton onClick={this.props.handleToggleMode}
-                                      buttonText={ApplicationMode.dispatch(this.props.applicationMode).title}/>
+                                      applicationMode = {this.props.applicationMode}/>
                     <MorePollutantsButton onClick={this.handleMorePollutantsClick} buttonText={buttonText}/>
                 </React.Fragment>
             );

@@ -1,17 +1,19 @@
 import React from 'react';
+import ApplicationMode, {TOP_POLLUTANTS} from "../ApplicationMode";
 
 const buttonClass = 'ModeSwitchButton w3-button w3-dark-grey';
+const arrowClass = 'fa fa-exclamation-triangle';
+const eyeClass = 'fa fa-eye';
 
 class ToggleModeButton extends React.Component {
-
-    constructor(props, context) {
-        super(props, context);
-        this.state = {};
-    }
-
     render() {
+        let arrow;
+        const dispatch = ApplicationMode.dispatch(this.props.applicationMode);
+        if (dispatch === TOP_POLLUTANTS)
+            arrow = arrowClass; else arrow = eyeClass;
         return (
-            <button className={buttonClass} onClick={this.props.onClick}>{this.props.buttonText}
+            <button className={buttonClass} onClick={this.props.onClick}><i
+                className={arrow}/> {dispatch.title}
             </button>
         );
     }
