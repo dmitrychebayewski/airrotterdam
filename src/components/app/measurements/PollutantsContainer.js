@@ -4,10 +4,8 @@ import ApplicationMode, {MONITOR, TOP_POLLUTANTS} from '../ApplicationMode'
 import PollutantsPanel from './PollutantsPanel';
 import RegionalMeasurementsPanel from '../regional/RegionalMeasurementsPanel';
 import PollutantInfoPanel from '../info/PollutantInfoPanel';
-import GetAggregatedComponentsMeasurements
-    from "../../../client/axios/measurements/GetAggregatedComponentsMeasurements";
-import {TOP_POLLUTANTS_LIST} from "../../../metadata/TopPollutants";
 import {ROTTERDAM_ZUIDPLEIN} from "../../../metadata/Geolocations";
+import {updateComponentsMeasurements} from "../../../handler/PollutantsCintainerHandler";
 
 const className = 'PollutantsContainer w3-container';
 
@@ -18,13 +16,17 @@ class PollutantsContainer extends React.Component {
         this.handleMonitorFormulaSelection = this.handleMonitorFormulaSelection.bind(this);
         this.handleTopPollutantsFormulaSelection = this.handleTopPollutantsFormulaSelection.bind(this);
         this.handleToggleAppMode = this.handleToggleAppMode.bind(this);
+        let applicationMode = MONITOR;
+        if (ApplicationMode.isTopPollutants(this.props.cookies.get('applicationMode'))) {
+            applicationMode = TOP_POLLUTANTS
+        }
         this.state = {
             measurements: {},
             componentsMeasurements: {},
             formula: 'FN',
             componentInfo: {},
             dateOfMeasurement: new Date(),
-            applicationMode: MONITOR,
+            applicationMode: applicationMode,
             coordinates: ROTTERDAM_ZUIDPLEIN
         }
     }
@@ -48,22 +50,15 @@ class PollutantsContainer extends React.Component {
 
     handleToggleAppMode() {
         const nextMode = ApplicationMode.dispatch(this.state.applicationMode);
+        this.props.cookies.set('applicationMode', nextMode);
         switch (nextMode) {
             case TOP_POLLUTANTS:
-                GetAggregatedComponentsMeasurements.getComponentsMeasurements(TOP_POLLUTANTS_LIST).then(response => {
-                        this.setState(() => {
-                            return {
-                                applicationMode: nextMode,
-                                componentsMeasurements: response,
-                                coordinates: {
-                                    lat: response[0].coordinates[1],
-                                    lng: response[0].coordinates[0],
-                                    where: response[0].whereMeasured
-                                }
-                            }
-                        });
+                updateComponentsMeasurements(this);
+                this.setState(() => {
+                    return {
+                        applicationMode: nextMode,
                     }
-                );
+                });
                 return;
             default:
             case MONITOR:
@@ -76,6 +71,9 @@ class PollutantsContainer extends React.Component {
 
 
     render() {
+        if (ApplicationMode.isTopPollutants(this.state.applicationMode) && !this.state.componentsMeasurements.length) {
+            updateComponentsMeasurements(this);
+        }
         return (
             <div className={className}>
                 <PollutantsPanel

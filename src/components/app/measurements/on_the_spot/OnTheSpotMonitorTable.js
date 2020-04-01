@@ -7,7 +7,7 @@ import ApplicationMode from "../../ApplicationMode";
 
 const tableW3Classes = 'w3-table w3-striped w3-white';
 const moreRows = 3;
-const buttonText = 'Next Pollutants';
+const buttonText = 'Show next';
 const className = 'PollutantTable';
 
 
@@ -70,7 +70,6 @@ class OnTheSpotMonitorTable extends React.Component {
                     <div formula={entry.formula} className={"w3-container w3-center " + this.w3Colour(rating)}
                          style={this.style(value / scaleFactor)}>{value}</div>
                 </td>
-
             </tr>
         });
     }
@@ -87,7 +86,7 @@ class OnTheSpotMonitorTable extends React.Component {
                         </tbody>
                     </table>
                     <ToggleModeButton onClick={this.props.handleToggleMode}
-                                      applicationMode = {this.props.applicationMode}
+                                      applicationMode={this.props.applicationMode}
                                       buttonText={ApplicationMode.dispatch(this.props.applicationMode).title}/>
                     <MorePollutantsButton onClick={this.handleMorePollutantsClick} buttonText={buttonText}/>
                 </React.Fragment>

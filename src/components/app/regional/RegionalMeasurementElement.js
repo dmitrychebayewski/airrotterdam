@@ -1,6 +1,6 @@
 import React from 'react';
-import GetRegionalAggregatedMeasurements from "../../../client/axios/measurements/GetRegionalAggregatedMeasurements";
 import ComponentsInfo from "../../../metadata/ComponentsInfo";
+import {update} from "../../../handler/RegionalMeasurementElementHandler";
 
 class RegionalMeasurementElement extends React.Component {
 
@@ -12,25 +12,9 @@ class RegionalMeasurementElement extends React.Component {
         }
     }
 
-    updateValue() {
-        GetRegionalAggregatedMeasurements.getMeasurementByRegion(this.props.region,
-            this.props.currentFormula, 'avg')
-            .then(
-                response => {
-                    const value = response.length ? response[0].value : 0;
-                    this.setState({
-                        formula: this.props.currentFormula,
-                        value: value,
-                        dateOfMeasurement: this.props.dateOfMeasurement
-                    })
-                }
-            );
-    }
-
     w3Colour(value) {
         return ['w3-light-grey', 'w3-pale-blue', 'w3-pale-yellow', 'w3-yellow', 'w3-pale-red', 'w3-pale-yellow', 'w3-yellow', 'w3-pale-red', 'w3-pale-yellow', 'w3-yellow', 'w3-pale-red', 'w3-purple'][value];
     }
-
 
     style(value) {
         return {
@@ -40,7 +24,7 @@ class RegionalMeasurementElement extends React.Component {
 
     render() {
         if (this.state.formula !== this.props.currentFormula) {
-            this.updateValue();
+            update(this);
         }
         const measurementValue = this.state.value;
         const rating = ComponentsInfo.rating(this.props.currentFormula, measurementValue);

@@ -6,6 +6,7 @@ import GetRegionalAggregatedMeasurements from '../../../client/axios/measurement
 import {MONITOR, TOP_POLLUTANTS} from "../ApplicationMode";
 import TopPollutantsTable from "./top_pollutants/TopPollutantsTable";
 import {ROTTERDAM_ZUIDPLEIN} from "../../../metadata/Geolocations";
+import {update} from "../../../handler/PollutantsPanelHandler";
 
 
 const topPollutantsTitle = 'Top Air Pollutants, μg/m3';
@@ -28,18 +29,6 @@ class PollutantsPanel extends React.Component {
         };
     }
 
-    update(date) {
-        GetRegionalAggregatedMeasurements.getMeasurementsByStation('NL01487', 'avg', date).then(res => {
-            this.setState(() => {
-                return {
-                    formula: res[0].formula,
-                    measurements: res,
-                    dateOfMeasurement: date
-                }
-            });
-        });
-    }
-
     componentDidMount() {
         GetRegionalAggregatedMeasurements.getMeasurementsByStation('NL01487', 'avg', this.state.dateOfMeasurement).then(res => {
             this.setState(() => {
@@ -50,7 +39,7 @@ class PollutantsPanel extends React.Component {
             });
         });
         this.interval = setInterval(() => {
-            this.update(new Date())
+            update(new Date(), this)
         }, 240000);
     }
 
@@ -59,12 +48,7 @@ class PollutantsPanel extends React.Component {
     }
 
     onChange = dateOfMeasurement => {
-        GetRegionalAggregatedMeasurements.getMeasurementsByStation('NL01487', 'avg', dateOfMeasurement).then(response => {
-            this.setState({
-                dateOfMeasurement: dateOfMeasurement,
-                measurements: response
-            })
-        });
+        update(dateOfMeasurement, this);
     };
 
     render() {

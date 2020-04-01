@@ -1,11 +1,11 @@
 export const MONITOR = {
     name: 'app.monitor',
-    title: 'Monitor'
+    title: 'Watch'
 };
 
 export const TOP_POLLUTANTS = {
     name: 'app.topPollutants',
-    title: 'Top pollutants'
+    title: 'Top 7'
 };
 
 class ApplicationMode {
@@ -18,6 +18,14 @@ class ApplicationMode {
             default:
                 return MONITOR;
         }
+    }
+
+    static isMonitor(applicationMode) {
+        return JSON.stringify(MONITOR) === JSON.stringify(applicationMode);
+    }
+
+    static isTopPollutants(applicationMode) {
+        return JSON.stringify(TOP_POLLUTANTS) === JSON.stringify(applicationMode);
     }
 }
 

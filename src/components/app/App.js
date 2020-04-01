@@ -3,6 +3,7 @@ import Header from './Header';
 import PollutantsContainer from './measurements/PollutantsContainer';
 import ErrorBoundary from "./error_boundaries/ErrorBoundary";
 import {ROTTERDAM_ZUIDPLEIN} from "../../metadata/Geolocations";
+import {withCookies} from 'react-cookie';
 
 class App extends React.Component {
     render() {
@@ -10,11 +11,11 @@ class App extends React.Component {
             <div>
                 <Header currentMeasurementPoint={ROTTERDAM_ZUIDPLEIN.where}/>
                 <ErrorBoundary text='Measurements are not available. Refresh the page later'>
-                    <PollutantsContainer/>
+                    <PollutantsContainer cookies={this.props.cookies}/>
                 </ErrorBoundary>
             </div>
         )
     };
 }
 
-export default App;
+export default withCookies(App);

@@ -13,5 +13,5 @@ test('Pollutant Table should be present', () => {
         measurements={MockData.getInitMeasurements()}
     />);
     expect(getByText(/FN/)).toBeInTheDocument();
-    expect(getByText(/Next Pollutants/)).toBeInTheDocument();
+    expect(getByText(/Show next/)).toBeInTheDocument();
 });
