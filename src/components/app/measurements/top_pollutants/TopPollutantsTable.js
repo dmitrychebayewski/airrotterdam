@@ -6,7 +6,7 @@ import ToggleModeButton from "../ToggleModeButton";
 
 const tableW3Classes = 'w3-table w3-striped w3-white';
 const moreRows = 3;
-const buttonText = 'Next Pollutants';
+const buttonText = 'Show next';
 const className = 'PollutantTable';
 
 
@@ -91,7 +91,7 @@ class TopPollutantsTable extends React.Component {
                         </tbody>
                     </table>
                     <ToggleModeButton onClick={this.props.handleToggleMode}
-                                      applicationMode = {this.props.applicationMode}/>
+                                      applicationMode={this.props.applicationMode}/>
                     <MorePollutantsButton onClick={this.handleMorePollutantsClick} buttonText={buttonText}/>
                 </React.Fragment>
             );
