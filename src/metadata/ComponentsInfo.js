@@ -651,7 +651,8 @@ class ComponentsInfo {
     static rating(name, value) {
         const component = ALL[name];
         if (component) {
-            return component.limits.find(element => withinRange(element, value)).rating;
+            const found = component.limits.find(element => withinRange(element, value));
+            return found? found.rating : 1;
         }
         return 11;
     }

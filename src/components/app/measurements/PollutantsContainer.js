@@ -5,7 +5,7 @@ import PollutantsPanel from './PollutantsPanel';
 import RegionalMeasurementsPanel from '../regional/RegionalMeasurementsPanel';
 import PollutantInfoPanel from '../info/PollutantInfoPanel';
 import {ROTTERDAM_ZUIDPLEIN} from "../../../metadata/Geolocations";
-import {updateComponentsMeasurements} from "../../../handler/PollutantsCintainerHandler";
+import {updateComponentsMeasurements} from "../../../handler/PollutantsContainerHandler";
 
 const className = 'PollutantsContainer w3-container';
 

@@ -7,6 +7,7 @@ import {MONITOR, TOP_POLLUTANTS} from "../ApplicationMode";
 import TopPollutantsTable from "./top_pollutants/TopPollutantsTable";
 import {ROTTERDAM_ZUIDPLEIN} from "../../../metadata/Geolocations";
 import {update} from "../../../handler/PollutantsPanelHandler";
+import GetStation from "../../../client/axios/stations/GetStation";
 
 
 const topPollutantsTitle = 'Top Air Pollutants, μg/m3';
@@ -25,7 +26,8 @@ class PollutantsPanel extends React.Component {
         super(props, context);
         this.state = {
             dateOfMeasurement: this.props.dateOfMeasurement,
-            measurements: this.props.measurements
+            measurements: this.props.measurements,
+            coordinates: ROTTERDAM_ZUIDPLEIN
         };
     }
 
@@ -43,6 +45,28 @@ class PollutantsPanel extends React.Component {
         }, 240000);
     }
 
+    latLngChangeHandler = (LatLng) => {
+        GetStation.getComponentUpperLimit(LatLng.lat, LatLng.lng).then(
+            res => {
+                const data = res[0];
+                GetRegionalAggregatedMeasurements.getMeasurementsByStation(data.number, 'avg', this.state.dateOfMeasurement).then(res => {
+                    this.setState(() => {
+                        return {
+                            formula: res[0].formula,
+                            measurements: res,
+                            stationNr: data.number,
+                            coordinates: {
+                                lat: data.coordinates.lat,
+                                lng: data.coordinates.lng,
+                                where: data.location
+                            }
+                        }
+                    });
+                });
+            }
+        );
+    };
+
     componentWillUnmount() {
         clearInterval(this.interval);
     }
@@ -56,12 +80,11 @@ class PollutantsPanel extends React.Component {
         return (
             <div className={className + ' w3-row-padding'}
                  style={margin}>
-                {applicationMode === MONITOR &&
-                <LocationMapImage coordinates={ROTTERDAM_ZUIDPLEIN}/>
-                }
-                {applicationMode === TOP_POLLUTANTS &&
-                <LocationMapImage coordinates={this.props.coordinates}/>
-                }
+                <LocationMapImage
+                    mode={applicationMode}
+                    latLngHandler={this.latLngChangeHandler}
+                    coordinates={applicationMode === MONITOR ? this.state.coordinates : this.props.coordinates}
+                />
                 <div className="w3-twothird">
                     {applicationMode === MONITOR &&
                     <React.Fragment>
