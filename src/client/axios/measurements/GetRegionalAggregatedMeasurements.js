@@ -6,7 +6,7 @@ import AxiosGet from '../AxiosGet';
 const MEASUREMENT_STATION_ENDPOINT = 'api/measurement/station';
 const MEASUREMENT_REGION_ENDPOINT = 'api/measurement/region';
 
-class GetRegionalAggregatedMeasurements {
+export default class GetRegionalAggregatedMeasurements {
 
     /**
      * http://{url}/v1/api/measurements/NL01488
@@ -37,5 +37,3 @@ class GetRegionalAggregatedMeasurements {
         return AxiosGet.get(url);
     }
 }
-
-export default GetRegionalAggregatedMeasurements

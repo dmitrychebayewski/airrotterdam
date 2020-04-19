@@ -5,7 +5,7 @@ import AxiosGet from '../AxiosGet';
 
 const MEASUREMENT_COMPONENTS_ENDPOINT = 'api/measurement/components';
 
-class GetAggregatedComponentsMeasurements {
+export default class GetAggregatedComponentsMeasurements {
 
     /**
      * http://{url}/v1/api/measurement/components
@@ -25,5 +25,3 @@ class GetAggregatedComponentsMeasurements {
     }
 
 }
-
-export default GetAggregatedComponentsMeasurements
