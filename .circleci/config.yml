@@ -15,8 +15,6 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - store_test_results:
-          path: build/test-results
   nightly:
     triggers:
       - schedule:
