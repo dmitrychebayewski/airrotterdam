@@ -1,47 +1,47 @@
 ## [Air Quality Monitor (Rotterdam)](https://airrotterdam.herokuapp.com)
 
-This single-page web application will update you about the quality of air you're breathing,
+This single-page web application will update you about the quality of air you're breathing
 anywhere in the Netherlands!
 
-The idea of this app was to give quick insight into the air quality near Ahoy, Zuidplein in Rotterdam,
-to the visitors of Eurovision 2020 Song Contest.
+The idea of this app was to give av overview what the air quality near Ahoy, Zuidplein in Rotterdam,
+is, so that the visitors of Eurovision Song Contest 2020 know what they're breathing.
 
-Due to outbreak of covid-19 in Western Europe, many activities in the Netherlands were put on hold.
-We were uncertain about the air around us, but I was curious, 
-what the effect of our smart lock down on the quality of air could be. 
+Due to the outbreak of Covid-19 in Western Europe many activities in the Netherlands were put on hold.
+I was personally concerned about the quality of air surrounding us, and I asked myself, how significant  
+the effect of our smart lock down on the air quality could be. 
 
-So did the next dimension of the app materialize: Travelling in time. 
+So did the next dimension of the app materialize: "Travelling in time", 
+and I added a feature which compared the real-time and historical measurements. 
 
-Finally, we found ourselves self-isolated in our houses. Never before was our neighbourhood so important for us. 
-So the third feature was born: Find your spot.
+Finally, we found ourselves self-isolated in our houses. 
+Never ever was our neighbourhood so important for us. 
+So did the third dimension grow up: "Find your spot"".
 
-But let's begin from the very beginning.
+Let us have a look how it works.
  
-Once you open the application page which is:
-
-https://airrotterdam.herokuapp.com
-
+Once you open the [application](https://airrotterdam.herokuapp.com) page,
 the browser page will look like this:
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/b9e02b25ea766feb016ad18f88c31da1/Air_monitor_-_Monitor.png" alt="application"/>
 
-Let us dive deeper into the features.
+Now, we'll dive deeper into the details.
 
 ## Features
 
-The application supports two modes and one experimental feature:
+The application supports two modes, one of them with an experimental feature:
 
-* Monitoring the air quality on the spot (Monitor) with "Find your spot"
+* "Monitor": Monitoring the air quality on the spot
 
-* Showing top values of pollutants concentrations contributing to AQI calculation, recently measured in the Netherlands (Top pollutants)
+* "Top 7": Real-time values of Top 7 components (pollutants) contributing to AQI calculation, measured country-wide.
+The location, where the maximum was spotted, is shown on the map.
 
 ## Monitoring the air quality on the spot
 
-Each air pollutant value is an average value of at least 3 recently taken ones.
+The value of the pollutant concentration, shown on the diagram, is an average of 3 recently taken measurements.
 
-* Loading the next 3 measurements on the spot
+* Show next 3 pollutants' concentrations
 
-Click or tap the button to see the next measurements of the components polluting the air.
+Click or tap the button to see next 3 concentrations of pollutants.
 
 * Travelling in time / comparing the current and the historical measurements
 
@@ -51,34 +51,36 @@ You can travel in time by picking the date and time of the measurement in the pa
 
 Once you have chosen the measurement date, the app will show you historical values of air pollutants on the spot.
 
-* Comparing the historical values and up to date city and provincial values of pollutant concentrations
+* Comparing the real-time concentrations and historical values (city and provincial)
  
-Did you click  or tap the pollutant row in the table, the application will update the charts 
-that display the actual values of pollutant concentration in Rotterdam city and Zuid - Holland province.
-These values are not travelling in time. This makes it handy to compare the current situation in the city 
-(and the the region) with historic measurements.
+Did you click or tap the pollutant bar on the upper chart? The lower chart, 
+which displays the real-time average values of pollutant concentration in Rotterdam city and Zuid - Holland province, 
+will be updated. The lower chart (city and provincial values) is not travelling in time. 
+This makes it easy to compare the real-lime concentration of the pollutant in the city and the province and their corresponding historical 
+values on the spot.
 
-* Switching to "Top Pollutants" mode
+* Switching to "Top 7" mode
 
-Once you click (or tap) the "Switch to top pollutants" button, the application will switch to "Top Pollutants" mode.
+Once you click (or tap) the "Top 7" button, the application will switch to "Top 7" mode.
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/6b314da5e755e3e15cad7fe66e30970d/Air_monitor_-_Top_Pollutants.PNG" alt="application"/>
 
-### (Experimental) Search your spot
+### (Experimental) Find your spot
 
-You can use the Search feature. The feature has experimental status.
-Click or tap the Search icon and start to type your city of street name.
+You can use the Search feature. The feature is experimental.
+Click or tap the Search icon and start to type your city or your street name.
+The search result set will be limited to the Dutch addresses. 
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e8394fe5b4fc731d6931121/600x295/f202bea22b880a2e4077d2c9dfceb9d5/LeafletSearch_-_3.PNG.png" alt="LeafletJS search your spot"/>
 
-Once the result appears in the top of search results list, tap the desired list item. 
-The app will fly you to the nearest station and show you up to date status of pollutants (based on 3 recent measurements) 
-that are contributing to the contamination of the air around you.
+Once the result appears on the top of search results list, tap or click the list item with desired address. 
+The app will fly you to the nearest measurement station and show you real-time concentrations of the pollutants (based on 3 recent measurements) 
+measured by this station.
 
 
-## Top pollutants
+## Top 7
 
-The application displays the list of maximal concentrations of top pollutants. 
+The application displays the list of maximal concentrations of top 7 pollutants contributing to AQI calculation. 
 The numbers are maximal values of at least 3 recent measurements.
 
 * Switching back to "Monitor" mode
@@ -156,37 +158,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Heroku
 
 Use the [Heroku Buildpack for Create React App.](https://github.com/mars/create-react-app-buildpack)
-You can find instructions in [Deploying React with Zero Configuration.](https://blog.heroku.com/deploying-react-with-zero-configuration)
+You can find instructions on [Deploying React with Zero Configuration.](https://blog.heroku.com/deploying-react-with-zero-configuration)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 ## Known issues
 
@@ -220,3 +193,33 @@ The application may set cookies from the following vendors:
 The application sets the following cookies:
 
 *  applicationMode: to save the mode (Watch or Top7) for your next visit of [Airrotterdam](https://airrotterdam.herokuapp.com/)
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

@@ -15,3 +15,13 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 5 * * *"
+          filters:
+            branches:
+              only:
+                - develop
+    jobs:
+      - build-and-test
