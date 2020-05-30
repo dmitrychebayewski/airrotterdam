@@ -1,25 +1,22 @@
 ## [Air Quality Monitor (Rotterdam)](https://airrotterdam.herokuapp.com)
 
-This single-page web application will update you about the quality of air you're breathing
-anywhere in the Netherlands!
+This single-page web application updates you about the quality of air you're breathing in the Netherlands.
 
-The idea of this app was to give av overview what the air quality near Ahoy, Zuidplein in Rotterdam,
-is, so that the visitors of Eurovision Song Contest 2020 know what they're breathing.
+The idea of this app was to give an overview what the air quality near Ahoy, Zuidplein in Rotterdam,
+wass, so that the guests of the Eurovision Song Contest 2020 could be aware of the envirinment.
 
 Due to the outbreak of Covid-19 in Western Europe many activities in the Netherlands were put on hold.
 I was personally concerned about the quality of air surrounding us, and I asked myself, how significant  
 the effect of our smart lock down on the air quality could be. 
 
-So did the next dimension of the app materialize: "Travelling in time", 
-and I added a feature which compared the real-time and historical measurements. 
+So did the next dimension of the app materialize: "Travelling in time", a feature which compared the real-time and historical measurements. 
 
-Finally, we found ourselves self-isolated in our houses. 
-Never ever was our neighbourhood so important for us. 
+Finally, we found ourselves self-isolated in our houses. Never before was our neighbourhood so important for us. 
 So did the third dimension grow up: "Find your spot"".
 
-Let us have a look how it works.
+Let us have a look how the app works.
  
-Once you open the [application](https://airrotterdam.herokuapp.com) page,
+Once you open the [application](https://airrotterdam.herokuapp.com) page (might take time),
 the browser page will look like this:
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/b9e02b25ea766feb016ad18f88c31da1/Air_monitor_-_Monitor.png" alt="application"/>
@@ -28,7 +25,7 @@ Now, we'll dive deeper into the details.
 
 ## Features
 
-The application supports two modes, one of them with an experimental feature:
+The application supports two modes:
 
 * "Monitor": Monitoring the air quality on the spot
 
@@ -65,9 +62,9 @@ Once you click (or tap) the "Top 7" button, the application will switch to "Top 
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/6b314da5e755e3e15cad7fe66e30970d/Air_monitor_-_Top_Pollutants.PNG" alt="application"/>
 
-### (Experimental) Find your spot
+### [Experimental] Find your spot
 
-You can use the Search feature. The feature is experimental.
+You can use the Search feature (experimental).
 Click or tap the Search icon and start to type your city or your street name.
 The search result set will be limited to the Dutch addresses. 
 
@@ -114,9 +111,7 @@ The latter is stateless service built in Kotlin around the  [Luchtmeetnet 2020 O
 
 ## Math
 
-I used PatriciaTrie implementation of [Radix Tree](https://en.wikipedia.org/wiki/Radix_tree) to structure the stations measuring the air,
-and great Circle Distance algorithm to fly you to the nearest measurement spot in real time when you're looking up your spot in the Netherlands.
-
+I used the great Circle Distance algorithm to calculate the coordinates of the air measurement station near your spot.
 
 ## Available Scripts
 
