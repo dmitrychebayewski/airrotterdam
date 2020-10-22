@@ -1,4 +1,4 @@
-## [Air Quality Monitor (Rotterdam)](https://airrotterdam.herokuapp.com)
+## [Air Quality Monitor (Rotterdam)](https://air-rotterdam.ew.r.appspot.com)
 
 This single-page web application will update you about the quality of air you're breathing
 anywhere in the Netherlands!
@@ -19,7 +19,7 @@ So did the third dimension grow up: "Find your spot"".
 
 Let us have a look how it works.
  
-Once you open the [application](https://airrotterdam.herokuapp.com) page,
+Once you open the [application](https://air-rotterdam.ew.r.appspot.com) page,
 the browser page will look like this:
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/b9e02b25ea766feb016ad18f88c31da1/Air_monitor_-_Monitor.png" alt="application"/>
@@ -192,7 +192,7 @@ The application may set cookies from the following vendors:
 
 The application sets the following cookies:
 
-*  applicationMode: to save the mode (Watch or Top7) for your next visit of [Airrotterdam](https://airrotterdam.herokuapp.com/)
+*  applicationMode: to save the mode (Watch or Top7) for your next visit of [Airrotterdam](https://air-rotterdam.ew.r.appspot.com/)
 
 ## Learn More
 
