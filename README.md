@@ -62,7 +62,7 @@ Once you click (or tap) the "Top 7" button, the application will switch to "Top 
 
 <img src="https://trello-attachments.s3.amazonaws.com/5e77b3f063dc99362c7036b8/5e7f3476ba8e413822fb0b77/6b314da5e755e3e15cad7fe66e30970d/Air_monitor_-_Top_Pollutants.PNG" alt="application"/>
 
-### [Experimental] Find your spot
+### Find your spot
 
 You can use the Search feature (experimental).
 Click or tap the Search icon and start to type your city or your street name.
@@ -158,25 +158,7 @@ You can find instructions on [Deploying React with Zero Configuration.](https://
 
 ## Known issues
 
-### Search feature
- 
-Top search result is sometimes giving the second nearest station, as it is shown on the picture.
-
-<img src="https://trello-attachments.s3.amazonaws.com/5e8394fe5b4fc731d6931121/601x303/a03295f9518550fc87478d4bae473a40/LeafletSearch_-_1.PNG.png" alt="LeafletJS improper result"/>
-
-Here the search input is Delft whereas the nearest station should be located in Ypenburg, the Hague. 
-But due to the search provider (OpenStreetMaps), top search result is improper, and the app will fly you
-to Overschie near Rotterdam instead, and show you top pollutants there.
-
-<img src="https://trello-attachments.s3.amazonaws.com/5e8394fe5b4fc731d6931121/590x296/f3b727104dbffb6037cae4390257c745/LeafletSearch_-_2.PNG.png" alt="LeafletJS  improper result"/>
-
-Solution: Specify the city and the street name in the search field
-
-### Application sleeps after 30 minutes of inactivity
-
-Due to known limitation of Heroku, the app will sleep after 30 minutes of inactivity. 
-On wakeup, it will take up to 1 minute to warm up the internal caches. 
-We are working on boosting this process up.  
+LeafletSearch results: Incorrect font rendering on Ipad
  
 ## Cookies
 
