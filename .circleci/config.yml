@@ -5,6 +5,7 @@ jobs:
   build-and-test:
     executor:
       name: node/default
+      version: 12.19.0
     steps:
         - checkout
         - node/install-packages:
@@ -16,7 +17,6 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-          version: 12.19.0
   nightly:
     triggers:
       - schedule:
