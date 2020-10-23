@@ -1,14 +1,15 @@
 version: 2.1
 orbs:
-  node: circleci/node@2.0.2
+  node: circleci/node@4.1.0
 jobs:
   build-and-test:
     executor:
       name: node/default
     steps:
         - checkout
-        - node/install-packages:
-            pkg-manager: yarn
+        - install:
+            comand: yarn install --ignore-engines
+            name: Install packages
         - run:
             command: yarn run test
             name: Run YARN tests
