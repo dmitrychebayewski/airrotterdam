@@ -158,7 +158,6 @@ You can find instructions on [Deploying React with Zero Configuration.](https://
 
 ## Known issues
 
-LeafletSearch results: Incorrect font rendering on Ipad
  
 ## Cookies
 
