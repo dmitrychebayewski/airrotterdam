@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node@2.0.0
+  node: circleci/node@2.0.2
 jobs:
   build-and-test:
     executor:
@@ -16,6 +16,7 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
+          version: 12.19.0
   nightly:
     triggers:
       - schedule:
