@@ -1,8 +1,22 @@
 version: 2.1
 orbs:
   node: circleci/node@4.1.0
+  gcp-cli: circleci/gcp-cli@1.8.5
 jobs:
-  build-and-test:
+  test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+          override-ci-command: yarn install --ignore-engines
+      - run:
+          command: |
+          yarn run test
+          pwd
+          name: Run YARN tests
+  build:
     executor:
       name: node/default
     steps:
@@ -14,9 +28,9 @@ jobs:
           command: yarn run test
           name: Run YARN tests
 workflows:
-  build-and-test:
+  test:
     jobs:
-      - build-and-test
+      - test
   nightly:
     triggers:
       - schedule:
@@ -26,4 +40,4 @@ workflows:
               only:
                 - develop
     jobs:
-      - build-and-test
+      - test
