@@ -14,7 +14,6 @@ jobs:
           override-ci-command: yarn install --ignore-engines
       - run: |
           yarn run test
-          ls
   build:
     executor:
       name: node/default
@@ -26,8 +25,6 @@ jobs:
           override-ci-command: yarn install --ignore-engines
       - run: |
           yarn build
-          pwd
-          ls
       - save_cache:
           paths:
             - ~/repo/build
@@ -53,17 +50,25 @@ jobs:
 workflows:
   test:
     jobs:
-#      - test:
-#          filters:
-#            branches:
-#              only:
-#                - develop
-      - build
-#          requires:
-#            - test
+      - test:
+          filters:
+            branches:
+              only:
+                - develop
+  deploy_prod:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
       - deploy:
            requires:
              - build
+           filters:
+             branches:
+               only:
+                 - master
   nightly:
     triggers:
       - schedule:
