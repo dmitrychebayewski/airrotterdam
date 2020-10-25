@@ -11,11 +11,10 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           override-ci-command: yarn install --ignore-engines
-      - run:
-          command: |
+      - run: |
           yarn run test
+          yarn build
           pwd
-          name: Run YARN tests
   build:
     executor:
       name: node/default
