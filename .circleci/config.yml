@@ -28,6 +28,10 @@ jobs:
           yarn build
           pwd
           ls
+      - save_cache:
+          paths:
+            - ~/repo/build
+          key: v1-build-{{ .Branch }}-{{ checksum "~/repo/app.yaml" }}
 workflows:
   test:
     jobs:
@@ -36,6 +40,9 @@ workflows:
             branches:
               only:
                 - develop
+      - build:
+          requires:
+            - test
   nightly:
     triggers:
       - schedule:
