@@ -35,14 +35,14 @@ jobs:
 workflows:
   test:
     jobs:
-      - test:
-          filters:
-            branches:
-              only:
-                - develop
-      - build:
-          requires:
-            - test
+#      - test:
+#          filters:
+#            branches:
+#              only:
+#                - develop
+      - build
+#          requires:
+#            - test
   nightly:
     triggers:
       - schedule:
