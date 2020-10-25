@@ -31,7 +31,25 @@ jobs:
       - save_cache:
           paths:
             - ~/repo/build
+            - ~/repo/app.yaml
           key: v1-build-{{ .Branch }}-{{ checksum "~/repo/app.yaml" }}
+  deploy:
+    executor:
+      name: gcp-cli/default
+    working_directory: ~/repo
+    steps:
+      - gcp-cli/install
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-build-{{ .Branch }}-{{ checksum "~/repo/app.yaml" }}
+      - run: |
+          pwd
+          ls
+
+      - gcp-cli/initialize:
+          google-project-id: GCLOUD_PROJECT_ID
+
 workflows:
   test:
     jobs:
@@ -43,6 +61,9 @@ workflows:
       - build
 #          requires:
 #            - test
+      - deploy:
+           requires:
+             - build
   nightly:
     triggers:
       - schedule:
