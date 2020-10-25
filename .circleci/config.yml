@@ -46,10 +46,8 @@ jobs:
       - run: |
           pwd
           ls
-
-      - gcp-cli/initialize:
-          google-project-id: GCLOUD_PROJECT_ID
-
+          echo ${GCLOUD_SERVICE_KEY} | base64 --decode | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GCLOUD_PROJECT}
 workflows:
   test:
     jobs:
