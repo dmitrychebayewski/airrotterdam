@@ -1,22 +1,74 @@
 version: 2.1
 orbs:
   node: circleci/node@4.1.0
+  gcp-cli: circleci/gcp-cli@1.8.5
 jobs:
-  build-and-test:
+  test:
     executor:
       name: node/default
+    working_directory: ~/repo
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
           override-ci-command: yarn install --ignore-engines
-      - run:
-          command: yarn run test
-          name: Run YARN tests
+      - run: |
+          yarn run test
+  build:
+    executor:
+      name: node/default
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+          override-ci-command: yarn install --ignore-engines
+      - run: |
+          yarn build
+      - save_cache:
+          paths:
+            - ~/repo/build
+            - ~/repo/app.yaml
+          key: v1-build-{{ .Branch }}-{{ checksum "~/repo/app.yaml" }}
+  deploy:
+    executor:
+      name: gcp-cli/default
+    working_directory: ~/repo
+    steps:
+      - gcp-cli/install
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-build-{{ .Branch }}-{{ checksum "~/repo/app.yaml" }}
+      - run: |
+          echo ${GCLOUD_SERVICE_KEY} | base64 --decode | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GCLOUD_PROJECT}
+      - deploy:
+          name: Deploying to App Engine
+          command:
+            gcloud app deploy
 workflows:
-  build-and-test:
+  test:
     jobs:
-      - build-and-test
+      - test:
+          filters:
+            branches:
+              only:
+                - develop
+  deploy_prod:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+           requires:
+             - build
+           filters:
+             branches:
+               only:
+                 - master
   nightly:
     triggers:
       - schedule:
@@ -26,4 +78,4 @@ workflows:
               only:
                 - develop
     jobs:
-      - build-and-test
+      - test
