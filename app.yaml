@@ -1,6 +1,6 @@
 runtime: nodejs12
 env_variables:
-  RELEASE_VERSION: "6.4"
+  RELEASE_VERSION: "6.5"
 
 handlers:
   - url: /static/js/(.*)

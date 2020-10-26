@@ -16,7 +16,7 @@ export default class GetAggregatedComponentsMeasurements {
      */
     static getComponentsMeasurements(components = ['NO2'], aggr = 'max', date = new Date()) {
         const end = moment(date).format();
-        const start = moment(date).subtract(HOURS_BACK, 'hours').subtract('5', 'minutes').format();
+        const start = moment(date).subtract(HOURS_BACK, 'hours').add('1', 'seconds').format();
         const parameters = '&formula=' + components.reduce((acc, component) =>
             acc += `&formula=${encodeURIComponent(component)}`
         );

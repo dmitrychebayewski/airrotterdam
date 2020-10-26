@@ -17,7 +17,7 @@ export default class GetRegionalAggregatedMeasurements {
      */
     static getMeasurementsByStation(station_number = 'NL01487', aggr = 'avg', date = new Date()) {
         const end = moment(date).format();
-        const start = moment(date).subtract(HOURS_BACK, 'hours').subtract('5', 'minutes').format();
+        const start = moment(date).subtract(HOURS_BACK, 'hours').add('1', 'seconds').format();
         const url = `${AIR_QUALITY_API_URL}:${DEFAULT_PORT}/${API_VERSION}/${MEASUREMENT_STATION_ENDPOINT}/${station_number}?start=${start}&end=${end}&aggr=${aggr}`;
         return AxiosGet.get(url);
     }
@@ -32,7 +32,7 @@ export default class GetRegionalAggregatedMeasurements {
      */
     static getMeasurementByRegion(region = 'RD', formula = 'FN', aggr = 'avg', date = new Date()) {
         const end = moment(date).format();
-        const start = moment(date).subtract(HOURS_BACK, 'hours').subtract('5', 'minutes').format();
+        const start = moment(date).subtract(HOURS_BACK, 'hours').add('1', 'seconds').format();
         const url = `${AIR_QUALITY_API_URL}:${DEFAULT_PORT}/${API_VERSION}/${MEASUREMENT_REGION_ENDPOINT}/${region}?formula=${formula}&start=${start}&end=${end}&aggr=${aggr}`;
         return AxiosGet.get(url);
     }
