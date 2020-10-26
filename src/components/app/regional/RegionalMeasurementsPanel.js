@@ -1,7 +1,6 @@
 import React from 'react';
 import RegionalMeasurementElement from "./RegionalMeasurementElement";
 import moment from "moment";
-import {HOURS_BACK} from '../../../config/Constants';
 import ComponentsInfo from "../../../metadata/ComponentsInfo";
 import ErrorBoundary from "../error_boundaries/ErrorBoundary";
 
