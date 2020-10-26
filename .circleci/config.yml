@@ -28,7 +28,6 @@ jobs:
       - save_cache:
           paths:
             - ~/repo/build
-            - ~/repo/app.yaml
           key: v1-build-{{ .Branch }}-{{ checksum "~/repo/app.yaml" }}
   deploy:
     executor:
