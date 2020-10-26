@@ -1,1 +1,1 @@
-export const HOURS_BACK = 1;
+export const HOURS_BACK = 2;
