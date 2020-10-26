@@ -36,7 +36,7 @@ The location, where the maximum was spotted, is shown on the map.
 
 ## Monitoring the air quality on the spot
 
-The value of the pollutant concentration, shown on the diagram, is an average of 3 recently taken measurements.
+The value of the pollutant concentration, shown on the diagram, is recently taken measurement.
 
 * Show next 3 pollutants' concentrations
 
