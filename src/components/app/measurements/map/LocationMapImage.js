@@ -1,7 +1,12 @@
 import React from 'react';
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import {MONITOR} from "../../ApplicationMode";
+import {
+    isBrowser,
+    isMobileOnly,
+    isTablet  } from "react-device-detect";
 import LeafletSearchHandler from "./handler/LeafletSearchHandler";
+
 
 class LocationMapImage extends React.Component {
     state = {
@@ -31,7 +36,7 @@ class LocationMapImage extends React.Component {
         const position = [this.props.coordinates.lat, this.props.coordinates.lng];
         return (
             <div className="w3-third w3-container">
-                <h5>{this.props.coordinates.where}</h5>
+                {(isBrowser || isTablet ) && !isMobileOnly && <h5>{this.props.coordinates.where}</h5>}
                 <Map style={this.style()} center={position} zoom={this.state.zoom}>
                     {this.props.mode === MONITOR &&
                     <LeafletSearchHandler position="topright"
@@ -39,14 +44,13 @@ class LocationMapImage extends React.Component {
                                              providerOptions={{region: "nl"}}
                                              closeResultsOnClick={false}
                                              popup={this.customPopup}
-                                             caller={this}
-                    />}
+                                             showPopup={true}
+                                             caller={this}/>}
                     <TileLayer
                         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={position}
-                    >
+                    <Marker position={position}>
                         <Popup>
                             {this.props.coordinates.where}
                         </Popup>

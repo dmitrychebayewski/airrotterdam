@@ -100,13 +100,16 @@ class PollutantsPanel extends React.Component {
                             pollutantsToShow={initPollutantsToShow}
                             formulaHandler={this.props.formulaHandler}
                             handleToggleMode={this.props.handleToggleMode}
-
                         />
                     </React.Fragment>
                     }
                     {applicationMode === TOP_POLLUTANTS &&
                     <React.Fragment>
-                        <h5>{topPollutantsTitle}</h5>
+                        <h5>{topPollutantsTitle}&nbsp;&nbsp;&nbsp;
+                            <DateTimePicker value={this.state.dateOfMeasurement}
+                                            disabled = {true}>
+                            </DateTimePicker>
+                        </h5>
                         <TopPollutantsTable
                             applicationMode={this.props.applicationMode}
                             dateOfMeasurement={this.state.dateOfMeasurement}
@@ -114,7 +117,6 @@ class PollutantsPanel extends React.Component {
                             pollutantsToShow={initPollutantsToShow}
                             formulaHandler={this.props.topPollutantsFormulaHandler}
                             handleToggleMode={this.props.handleToggleMode}
-
                         />
                     </React.Fragment>
                     }
@@ -122,7 +124,5 @@ class PollutantsPanel extends React.Component {
             </div>
         );
     }
-
 }
-
 export default PollutantsPanel;
