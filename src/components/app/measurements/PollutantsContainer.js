@@ -86,8 +86,6 @@ class PollutantsContainer extends React.Component {
                     componentsMeasurements={this.state.componentsMeasurements}
                     coordinates={this.state.coordinates}
                 />
-
-                <hr/>
                 <RegionalMeasurementsPanel
                     dateOfMeasurement={this.state.dateOfMeasurement}
                     currentFormula={this.state.formula}

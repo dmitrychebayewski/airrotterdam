@@ -5,7 +5,7 @@ export function update(reactComponent) {
         reactComponent.props.currentFormula, 'avg')
         .then(
             response => {
-                const value = response.length ? response[0].value : 0;
+                const value = (response && response.length) ? response[0].value : 0;
                 reactComponent.setState({
                     formula: reactComponent.props.currentFormula,
                     value: value,

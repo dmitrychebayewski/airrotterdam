@@ -16,9 +16,16 @@ class RegionalMeasurementElement extends React.Component {
         return ['w3-light-grey', 'w3-pale-blue', 'w3-pale-yellow', 'w3-yellow', 'w3-pale-red', 'w3-pale-yellow', 'w3-yellow', 'w3-pale-red', 'w3-pale-yellow', 'w3-yellow', 'w3-pale-red', 'w3-purple'][value];
     }
 
-    style(value) {
+    style(width) {
         return {
-            width: `${value}%`
+            width: `${width}%`
+        }
+    }
+
+    margin(value) {
+        return {
+            'margin-top': `${value}%`,
+            'margin-bottom': `${value}%`
         }
     }
 
@@ -31,7 +38,7 @@ class RegionalMeasurementElement extends React.Component {
         const scaleFactor = ComponentsInfo.limit(this.props.currentFormula) / 100;
         return (
             <div>
-                <p>{this.props.name}</p>
+                <p style={this.margin(0.9)}>{this.props.name}</p>
                 <div className={this.props.currentFormula + " w3-grey"}>
                     <div className={"w3-container w3-center w3-padding " + this.w3Colour(rating)}
                          style={this.style(measurementValue / scaleFactor)}>{measurementValue}&nbsp;μg/m3
