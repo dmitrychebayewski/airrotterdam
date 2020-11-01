@@ -29,10 +29,14 @@ class RegionalMeasurementElement extends React.Component {
         }
     }
 
-    render() {
+    componentDidUpdate() {
         if (this.state.formula !== this.props.currentFormula) {
             update(this);
-        }
+            return true;
+        } else return false;
+    }
+    
+    render() {
         const measurementValue = this.state.value;
         const rating = ComponentsInfo.rating(this.props.currentFormula, measurementValue);
         const scaleFactor = ComponentsInfo.limit(this.props.currentFormula) / 100;

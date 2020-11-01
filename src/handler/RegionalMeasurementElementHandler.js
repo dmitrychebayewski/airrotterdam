@@ -12,5 +12,5 @@ export function update(reactComponent) {
                     dateOfMeasurement: reactComponent.props.dateOfMeasurement
                 })
             }
-        );
+        ).catch(exception=>{});
 }
