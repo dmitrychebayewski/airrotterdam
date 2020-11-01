@@ -8,10 +8,12 @@ import TopPollutantsTable from "./top_pollutants/TopPollutantsTable";
 import {ROTTERDAM_ZUIDPLEIN} from "../../../metadata/Geolocations";
 import {update} from "../../../handler/PollutantsPanelHandler";
 import GetStation from "../../../client/axios/stations/GetStation";
+import ErrorBoundary from "../error_boundaries/ErrorBoundary";
 
 
 const topPollutantsTitle = 'Top Air Pollutants, μg/m3';
 const pollutantsMonitorTitle = 'Air Pollutants Monitor, μg/m3';
+const error = 'Measurements are not available. Please, refresh the page.';
 
 const className = 'PollutantsPanel w3-panel';
 const margin = {
@@ -41,8 +43,10 @@ class PollutantsPanel extends React.Component {
             });
         });
         this.interval = setInterval(() => {
-            update(new Date(), this)
-        }, 240000);
+            if(this.props.applicationMode === MONITOR) {
+               update(new Date(), this.state.stationNr, this)
+            }
+        }, 60000);
     }
 
     latLngChangeHandler = (LatLng) => {
@@ -72,7 +76,7 @@ class PollutantsPanel extends React.Component {
     }
 
     onChange = dateOfMeasurement => {
-        update(dateOfMeasurement, this);
+        update(dateOfMeasurement, this.state.stationNr, this);
     };
 
     render() {
@@ -110,6 +114,7 @@ class PollutantsPanel extends React.Component {
                                             disabled = {true}>
                             </DateTimePicker>
                         </h5>
+                        <ErrorBoundary text={error}>
                         <TopPollutantsTable
                             applicationMode={this.props.applicationMode}
                             dateOfMeasurement={this.state.dateOfMeasurement}
@@ -118,6 +123,7 @@ class PollutantsPanel extends React.Component {
                             formulaHandler={this.props.topPollutantsFormulaHandler}
                             handleToggleMode={this.props.handleToggleMode}
                         />
+                        </ErrorBoundary>
                     </React.Fragment>
                     }
                 </div>

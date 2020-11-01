@@ -24,8 +24,8 @@ class RegionalMeasurementElement extends React.Component {
 
     margin(value) {
         return {
-            'margin-top': `${value}%`,
-            'margin-bottom': `${value}%`
+            'marginTop': `${value}%`,
+            'marginBottom': `${value}%`
         }
     }
 

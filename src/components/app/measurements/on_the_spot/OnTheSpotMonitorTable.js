@@ -24,7 +24,7 @@ class OnTheSpotMonitorTable extends React.Component {
     }
 
     getMeasurements() {
-        return this.props.measurements;
+        return this.props.measurements? this.props.measurements: [];
     }
 
     getFormulaHandler() {

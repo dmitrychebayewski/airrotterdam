@@ -71,7 +71,7 @@ class PollutantsContainer extends React.Component {
 
 
     render() {
-        if (ApplicationMode.isTopPollutants(this.state.applicationMode) && !this.state.componentsMeasurements.length) {
+        if (ApplicationMode.isTopPollutants(this.state.applicationMode)) {
             updateComponentsMeasurements(this);
         }
         return (

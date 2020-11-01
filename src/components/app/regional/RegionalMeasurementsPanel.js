@@ -5,15 +5,15 @@ import ErrorBoundary from "../error_boundaries/ErrorBoundary";
 
 const className = 'GeneralStatsPanel w3-panel';
 
-const error = 'Measurements are not available. Please, visit us later';
+const error = 'Measurements are not available. Please, refresh the page.';
 
 
 class RegionalMeasurementsPanel extends React.Component {
 
     margin(value) {
         return {
-            'margin-top': `${value}%`,
-            'margin-bottom': `${value}%`
+            'marginTop': `${value}%`,
+            'marginBottom': `${value}%`
         }
     }
 
