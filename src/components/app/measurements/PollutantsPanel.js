@@ -36,9 +36,12 @@ class PollutantsPanel extends React.Component {
     componentDidMount() {
         GetRegionalAggregatedMeasurements.getMeasurementsByStation('NL01487', 'avg', this.state.dateOfMeasurement).then(res => {
             this.setState(() => {
-                return {
+                return res && res.length? {
                     formula: res[0].formula,
                     measurements: res
+                } : {
+                    formula: this.state.formula,
+                    measurements: this.state.measurements
                 }
             });
         });

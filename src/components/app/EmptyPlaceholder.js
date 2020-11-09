@@ -2,6 +2,8 @@ import React from 'react';
 
 const className = 'EmptyPlaceholder';
 
+const imagePath = process.env.PUBLIC_URL + '/assets/';
+
 class EmptyPlaceholder extends React.Component {
 
     height() {
@@ -10,9 +12,19 @@ class EmptyPlaceholder extends React.Component {
         }
     }
 
+    image() {
+        return {
+                'display': 'block',
+                'margin-left': 'auto',
+                'margin-right': 'auto',
+                 'width': '200px'
+        }
+    }
+
     render() {
         return (
-            <div className={className} style={this.height()}>Empty, no measurements (yet)
+            <div className={className} style={this.height()}>
+                <img src={`${imagePath}loading01.gif`} style={this.image()} alt="Empty, no measurements (yet)"></img>
             </div>
         );
     }
