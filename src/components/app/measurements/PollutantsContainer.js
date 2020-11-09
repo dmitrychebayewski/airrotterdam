@@ -32,7 +32,7 @@ class PollutantsContainer extends React.Component {
     }
 
     handleMonitorFormulaSelection(event) {
-        this.setState({
+       this.setState( {
             formula: event.target.attributes['formula'].value
         });
     }
@@ -69,11 +69,14 @@ class PollutantsContainer extends React.Component {
         }
     }
 
-
-    render() {
+    componentDidMount() {
         if (ApplicationMode.isTopPollutants(this.state.applicationMode)) {
             updateComponentsMeasurements(this);
         }
+    }
+
+
+    render() {
         return (
             <div className={className}>
                 <PollutantsPanel

@@ -1,8 +1,11 @@
 runtime: nodejs12
 env_variables:
-  RELEASE_VERSION: "6.6.2"
+  RELEASE_VERSION: "6.6.3"
 
 handlers:
+  - url: /assets/(.*)
+    static_files: build/assets/\1
+    upload: build/assets/(.*)
   - url: /static/js/(.*)
     static_files: build/static/js/\1
     upload: build/static/js/(.*)
