@@ -75,6 +75,6 @@ workflows:
           filters:
             branches:
               only:
-                - develop
+                - none
     jobs:
       - test
