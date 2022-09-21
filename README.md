@@ -24,7 +24,7 @@ The application supports two modes:
 * "Monitor": Monitoring the air quality on the spot
 
 * "Top 7": Real-time values of Top 7 components (pollutants) contributing to AQI calculation, measured country-wide.
-The location, where the maximum was spotted, is shown on the map.
+The location where the maximum was spotted is shown on the map.
 
 ## Monitoring the air quality on the spot
 
