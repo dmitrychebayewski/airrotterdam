@@ -1,23 +1,15 @@
 ## [Air Quality Monitor (Rotterdam)](https://air-rotterdam.ew.r.appspot.com)
 
-Air Quality Monitor is single page web application.
-Its purpose is to give users an impression about the quality of air we are re breathing in the Netherlands.
+Air Quality Monitor is a single-page web application. It gives an impression of the quality of the air in the Netherlands.
+Due to the outbreak of Covid-19 in the Netherlands, the Government put activities in the Netherlands on hold. My friends and I had questions. 
+How does the lockdown impact the emission of known air pollutants? 
+Is the air quality around the Zuidplein area in Rotterdam different from the air quality in some other neighborhoods in Rotterdam?
+How good is the air quality in any region of the Netherlands?
 
-The idea of this app was to give an insight about the air quality near Ahoy, Zuidplein in Rotterdam,
-so that the guests of the Eurovision Song Contest 2020 that hopefully will take place at Ahoy Congress,  
-could be aware of the environment.
-
-Due to the outbreak of Covid-19 in the Netherlands many activities were put on hold.
-I asked myself, how significant the effect of our smart lock down on the air quality could be,
-especially, reduction of pollutants emission. Could one see the difference between "now" and one year old data?  
-
-To answer this question, I added a feature that travels the app in time and compared the real-time and historical measurements. 
-
-Then, I added the feature that compares the quality of air in any part of Netherlands with measurements, taken in Rotterdam and median values in South Holland.
-
-Finally, I developed the feature that finds out the most polluted locations in the country (Top 7) by each polluting component.
-
-Now let's dive in details of UI.
+To answer this and many related questions, I added a feature that travels the app in time and compares the real-time and historical measurements.
+Then, I added the feature that compares the air quality in any part of the Netherlands with the values measured in Rotterdam and median measurements in South Holland.
+Finally, there is the feature that finds out the most polluted locations in the country (Top 7) by each polluting component.
+Now let's dive into the details of UI.
  
 Once you open the [application](https://air-rotterdam.ew.r.appspot.com) page,
 the browser page will look like this:
